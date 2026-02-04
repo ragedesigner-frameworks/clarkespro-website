@@ -51,11 +51,25 @@ a:hover { color: var(--color-green-dark); }
 .cta-button-large { padding: 1.25rem 3rem; font-size: 1.125rem; }
 .phone-button { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: var(--color-green-dark); color: var(--color-white); font-weight: 600; border-radius: var(--border-radius); transition: all 0.3s ease; }
 .phone-button:hover { background: var(--color-orange); color: var(--color-white); }
-.hero { background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-white) 100%); padding: var(--spacing-xl) 0; }
-.hero .container { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--spacing-lg); align-items: start; }
+.hero { 
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('images/hero-1.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    padding: var(--spacing-xl) 0; 
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+}
+.hero .container { 
+    display: block;
+    max-width: 900px;
+}
+.hero-content h1 { color: var(--color-white); }
 .hero-content h1 .accent { color: var(--color-orange); display: block; margin-top: var(--spacing-sm); }
-.hero-subhead { font-size: 1.25rem; color: var(--color-gray-medium); margin-bottom: var(--spacing-md); }
-.trust-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-sm); margin: var(--spacing-md) 0; padding: var(--spacing-md); background: var(--color-white); border-radius: var(--border-radius); box-shadow: var(--box-shadow); }
+.hero-subhead { font-size: 1.25rem; color: var(--color-white); margin-bottom: var(--spacing-md); }
+.trust-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-sm); margin: var(--spacing-md) 0; padding: var(--spacing-md); background: rgba(255, 255, 255, 0.95); border-radius: var(--border-radius); box-shadow: var(--box-shadow); }
 .trust-item { display: flex; align-items: center; gap: 0.5rem; color: var(--color-green-dark); font-weight: 500; }
 .trust-item svg { color: var(--color-orange); flex-shrink: 0; }
 .hero-cta { display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-md); flex-wrap: wrap; }
@@ -120,6 +134,7 @@ a:hover { color: var(--color-green-dark); }
 @media (max-width: 968px) {
     .hero .container, .equipment-item, .areas-content, .contact-content { grid-template-columns: 1fr; }
     .trust-stack { grid-template-columns: 1fr; }
+    .hero { background-attachment: scroll; }
 }
 @media (max-width: 768px) {
     h1 { font-size: 2rem; }
@@ -149,7 +164,7 @@ a:hover { color: var(--color-green-dark); }
         <div class="container">
             <div class="hero-content">
                 <h1>Tree Removal Without Destroying Your Lawn<br><span class="accent">We Fit Through 30"&nbsp;Gates</span></h1>
-                <p class="hero-subhead">Specialized equipment for Lake Magdalene & Carrollwood backyards. No fence removal. No lawn damage. Save Money on property restoration.</p>
+                <p class="hero-subhead">Specialized equipment for Lake Magdalene & Carrollwood backyards. Minimal property risk. Fence removal rarely needed. Save Money on property restoration.</p>
                 
                 <div class="trust-stack">
                     <div class="trust-item">
@@ -192,9 +207,6 @@ a:hover { color: var(--color-green-dark); }
                         (813) 516-6973
                     </a>
                 </div>
-            </div>
-            <div class="hero-image">
-                <img src="images/image5.jpeg" alt="Clarke's Pro Tree Service specialized backyard equipment">
             </div>
         </div>
     </section>
@@ -286,7 +298,7 @@ a:hover { color: var(--color-green-dark); }
                     </div>
                     <h3>Backyard Tree Removal</h3>
                     <p>Our specialty. When other companies say "we can't access that," we show you how we can. Perfect for Lake Magdalene, Carrollwood, and Forest Hills properties with mature trees and limited access.</p>
-                    <p class="service-includes"><strong>What's included:</strong> Complete removal, stump grinding, debris cleanup, zero lawn damage guarantee.</p>
+                    <p class="service-includes"><strong>What's included:</strong> Complete removal, stump grinding, debris cleanup, minimal property impact.</p>
                     <a href="#contact" class="service-cta">Request Free Assessment →</a>
                 </div>
 
@@ -359,7 +371,7 @@ a:hover { color: var(--color-green-dark); }
     <section id="why-choose-us" class="why-section">
         <div class="container">
             <div class="section-header">
-                <h2>12 Years of Professional Tree Service in Tampa</h2>
+                <h2>Why Choose Clarke's Pro Tree Service</h2>
             </div>
             
             <div class="why-grid">
@@ -367,6 +379,18 @@ a:hover { color: var(--color-green-dark); }
                     <div class="why-icon">⭐</div>
                     <h3>155+ Five-Star Reviews</h3>
                     <p>Our reputation is built on customer satisfaction. Read what Lake Magdalene and Carrollwood homeowners say about our work, our equipment, and our professionalism.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">🛡️</div>
+                    <h3>Minimal Property Risk</h3>
+                    <p>Our tracked equipment and expert operators significantly reduce the potential for property damage during tree work. We treat your property like it's our own.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">🚧</div>
+                    <h3>Fence Removal Rarely Needed</h3>
+                    <p>Our compact equipment accesses most tight spaces without dismantling your fence. In rare cases where there's absolutely no other way, we'll discuss options with you first.</p>
                 </div>
 
                 <div class="why-card">
@@ -379,6 +403,12 @@ a:hover { color: var(--color-green-dark); }
                     <div class="why-icon">🔧</div>
                     <h3>Specialized Equipment Investment</h3>
                     <p>We've invested in equipment specifically designed for Tampa backyard access. Most tree services use standard equipment. We use tools built for your property's needs.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">📅</div>
+                    <h3>12 Years Serving Tampa</h3>
+                    <p>Over a decade of experience in Tampa's unique tree landscape. We understand the local challenges and have the solutions to match.</p>
                 </div>
             </div>
         </div>
