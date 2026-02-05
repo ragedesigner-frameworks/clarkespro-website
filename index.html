@@ -40,8 +40,8 @@ h3 { font-size: 1.75rem; }
 p { margin-bottom: var(--spacing-sm); }
 a { color: var(--color-orange); text-decoration: none; transition: all 0.3s ease; }
 a:hover { color: var(--color-green-dark); }
-.navbar { background: var(--color-white); box-shadow: var(--box-shadow); position: sticky; top: 0; z-index: 1000; padding: var(--spacing-sm) 0; }
-.nav-content { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; padding: 0 var(--spacing-md); }
+.navbar { background: var(--color-white); box-shadow: var(--box-shadow); position: sticky; top: 0; z-index: 1000; width: 100%; }
+.nav-content { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: var(--spacing-sm) 40px; }
 .logo img { height: 80px; width: auto; }
 .nav-links { display: flex; gap: var(--spacing-md); align-items: center; }
 .nav-links a { color: var(--color-green-dark); font-weight: 500; padding: 0.5rem 1rem; }
@@ -90,7 +90,7 @@ a:hover { color: var(--color-green-dark); }
 .benefits-list li { padding: var(--spacing-xs) 0; padding-left: 2rem; position: relative; }
 .benefits-list li:before { content: "✓"; position: absolute; left: 0; color: var(--color-orange); font-weight: 700; font-size: 1.25rem; }
 .services-section { padding: var(--spacing-xl) 0; background: var(--color-white); }
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--spacing-md); }
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-md); max-width: 1000px; margin: 0 auto; }
 .service-card { background: var(--color-gray-light); padding: var(--spacing-md); border-radius: var(--border-radius); transition: all 0.3s ease; }
 .service-card:hover { transform: translateY(-5px); box-shadow: var(--box-shadow-lg); }
 .service-icon { color: var(--color-orange); margin-bottom: var(--spacing-sm); }
@@ -135,27 +135,27 @@ a:hover { color: var(--color-green-dark); }
     .hero .container, .equipment-item, .areas-content, .contact-content { grid-template-columns: 1fr; }
     .trust-stack { grid-template-columns: 1fr; }
     .hero { background-attachment: scroll; }
+    .nav-content { padding: var(--spacing-sm) var(--spacing-md); }
 }
 @media (max-width: 768px) {
     h1 { font-size: 2rem; }
     h2 { font-size: 1.75rem; }
     .nav-links { display: none; }
+    .services-grid { grid-template-columns: 1fr; }
 }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <div class="logo">
-                    <img src="images/clarkes-pro-logo.png" alt="Clarke's Pro Tree Service">
-                </div>
-                <div class="nav-links">
-                    <a href="#services">Services</a>
-                    <a href="#why-choose-us">Why Choose Us</a>
-                    <a href="#service-areas">Service Areas</a>
-                    <a href="#contact" class="cta-button">Get Free Assessment</a>
-                </div>
+        <div class="nav-content">
+            <div class="logo">
+                <img src="images/clarkes-pro-logo.png" alt="Clarke's Pro Tree Service">
+            </div>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#why-choose-us">Why Choose Us</a>
+                <a href="#service-areas">Service Areas</a>
+                <a href="#contact" class="cta-button">Get Free Assessment</a>
             </div>
         </div>
     </nav>
