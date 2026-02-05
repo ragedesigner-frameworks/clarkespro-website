@@ -41,7 +41,7 @@ p { margin-bottom: var(--spacing-sm); }
 a { color: var(--color-orange); text-decoration: none; transition: all 0.3s ease; }
 a:hover { color: var(--color-green-dark); }
 .navbar { background: var(--color-white); box-shadow: var(--box-shadow); position: sticky; top: 0; z-index: 1000; padding: var(--spacing-sm) 0; }
-.nav-content { display: flex; justify-content: space-between; align-items: center; }
+.nav-content { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; padding: 0 var(--spacing-md); }
 .logo img { height: 80px; width: auto; }
 .nav-links { display: flex; gap: var(--spacing-md); align-items: center; }
 .nav-links a { color: var(--color-green-dark); font-weight: 500; padding: 0.5rem 1rem; }
@@ -90,7 +90,7 @@ a:hover { color: var(--color-green-dark); }
 .benefits-list li { padding: var(--spacing-xs) 0; padding-left: 2rem; position: relative; }
 .benefits-list li:before { content: "✓"; position: absolute; left: 0; color: var(--color-orange); font-weight: 700; font-size: 1.25rem; }
 .services-section { padding: var(--spacing-xl) 0; background: var(--color-white); }
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-md); }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--spacing-md); }
 .service-card { background: var(--color-gray-light); padding: var(--spacing-md); border-radius: var(--border-radius); transition: all 0.3s ease; }
 .service-card:hover { transform: translateY(-5px); box-shadow: var(--box-shadow-lg); }
 .service-icon { color: var(--color-orange); margin-bottom: var(--spacing-sm); }
@@ -541,7 +541,7 @@ a:hover { color: var(--color-green-dark); }
                 </div>
                 <div class="footer-column">
     <h4>Follow Us</h4>
-    <div class="social-icons">
+    <div class="social-icons" style="display: flex; gap: 1rem;">
         <a href="https://www.facebook.com/clarkesprotrees" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
