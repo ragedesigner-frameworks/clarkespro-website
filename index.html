@@ -44,13 +44,11 @@ p { margin-bottom: var(--spacing-sm); }
 a { color: var(--color-orange); text-decoration: none; transition: all 0.3s ease; }
 a:hover { color: var(--color-green-dark); }
 
-/* =====================
-   MOBILE CALL BANNER (shows only on mobile)
-   ===================== */
+/* MOBILE CALL BANNER — sticky top, mobile only */
 .mobile-call-banner {
     display: none;
     background: var(--color-call-green);
-    padding: 1rem;
+    padding: 0.9rem 1rem;
     text-align: center;
     position: sticky;
     top: 0;
@@ -63,16 +61,13 @@ a:hover { color: var(--color-green-dark); }
     justify-content: center;
     gap: 0.6rem;
     color: #fff;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 700;
     text-decoration: none;
     letter-spacing: 0.5px;
 }
-.mobile-call-banner a:hover { color: #fff; opacity: 0.9; }
 
-/* =====================
-   NAVBAR
-   ===================== */
+/* NAVBAR */
 .navbar { background: var(--color-white); box-shadow: var(--box-shadow); position: sticky; top: 0; z-index: 1000; width: 100%; }
 .nav-content { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: var(--spacing-sm) 40px; }
 .logo img { height: 80px; width: auto; }
@@ -80,18 +75,22 @@ a:hover { color: var(--color-green-dark); }
 .nav-links a { color: var(--color-green-dark); font-weight: 500; padding: 0.5rem 1rem; }
 .nav-links a:hover { color: var(--color-orange); }
 
-/* =====================
-   BUTTONS
-   ===================== */
+/* BUTTONS */
 .cta-button, .cta-button-large { display: inline-block; padding: 1rem 2rem; background: var(--color-orange); color: var(--color-white); font-weight: 600; border-radius: var(--border-radius); border: none; cursor: pointer; transition: all 0.3s ease; }
 .cta-button:hover, .cta-button-large:hover { background: var(--color-green-dark); color: var(--color-white); transform: translateY(-2px); box-shadow: var(--box-shadow-lg); }
 .cta-button-large { padding: 1.25rem 3rem; font-size: 1.125rem; }
 .phone-button { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: var(--color-green-dark); color: var(--color-white); font-weight: 600; border-radius: var(--border-radius); transition: all 0.3s ease; }
 .phone-button:hover { background: var(--color-orange); color: var(--color-white); }
 
-/* Big green call button for mobile hero */
+/* MOBILE CTA BLOCK — below hero, mobile only, hidden by default */
+.mobile-hero-cta {
+    display: none;
+    background: var(--color-green-dark);
+    padding: 1.5rem var(--spacing-sm);
+    text-align: center;
+}
 .btn-call-big {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
@@ -99,43 +98,66 @@ a:hover { color: var(--color-green-dark); }
     padding: 1.4rem 1rem;
     background: var(--color-call-green);
     color: #fff;
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 700;
     border-radius: var(--border-radius);
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
-    box-shadow: 0 4px 15px rgba(26,124,42,0.4);
-    letter-spacing: 0.3px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
     margin-bottom: 0.75rem;
 }
-.btn-call-big:hover { background: var(--color-call-green-hover); color: #fff; transform: translateY(-2px); }
+.btn-call-big:hover { background: var(--color-call-green-hover); color: #fff; }
 .btn-call-secondary {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
     width: 100%;
-    padding: 1.1rem 1rem;
+    padding: 1rem 1rem;
     background: transparent;
-    border: 2px solid #fff;
+    border: 2px solid rgba(255,255,255,0.6);
     color: #fff;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
-.btn-call-secondary:hover { background: rgba(255,255,255,0.15); color: #fff; }
+.btn-call-secondary:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.mobile-hero-cta .response-note {
+    color: rgba(255,255,255,0.75);
+    font-size: 0.82rem;
+    margin: 0;
+}
 
-/* =====================
-   HERO
-   ===================== */
+/* FLOATING CALL BUTTON — mobile only */
+.floating-call-btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: var(--color-call-green);
+    color: #fff;
+    border-radius: 50px;
+    padding: 0.9rem 1.4rem;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+    text-decoration: none;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+.floating-call-btn:hover { background: var(--color-call-green-hover); color: #fff; }
+
+/* HERO */
 .hero { 
-    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('images/equip-clarkes-pro-tree-service.png');
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('images/equip-clarkes-pro-tree-service.png');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -149,17 +171,40 @@ a:hover { color: var(--color-green-dark); }
 .hero-content h1 { color: var(--color-white); }
 .hero-content h1 .accent { color: var(--color-orange); display: block; margin-top: var(--spacing-sm); }
 .hero-subhead { font-size: 1.25rem; color: var(--color-white); margin-bottom: var(--spacing-md); }
-.trust-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-sm); margin: var(--spacing-md) 0; padding: var(--spacing-md); background: rgba(255, 255, 255, 0.95); border-radius: var(--border-radius); box-shadow: var(--box-shadow); }
+.trust-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-sm); margin: var(--spacing-md) 0; padding: var(--spacing-md); background: rgba(255,255,255,0.95); border-radius: var(--border-radius); box-shadow: var(--box-shadow); }
 .trust-item { display: flex; align-items: center; gap: 0.5rem; color: var(--color-green-dark); font-weight: 500; }
 .trust-item svg { color: var(--color-orange); flex-shrink: 0; }
 .hero-cta { display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-md); flex-wrap: wrap; }
 
-/* Mobile hero CTA block (hidden on desktop) */
-.mobile-hero-cta { display: none; }
+/* MOBILE SOCIAL PROOF — inside hero, mobile only */
+.mobile-social-proof {
+    display: none;
+    background: rgba(255,255,255,0.95);
+    border-radius: var(--border-radius);
+    padding: 0.85rem 1rem;
+    margin-bottom: 0.75rem;
+}
+.mobile-social-proof .stars { color: #F59E0B; font-size: 1.1rem; }
+.mobile-social-proof p { margin: 0.2rem 0 0; font-size: 0.88rem; color: var(--color-green-dark); font-weight: 600; }
 
-/* =====================
-   MOBILE CALL STRIP (mid-page, mobile only)
-   ===================== */
+/* TRUST BADGES — mobile only */
+.trust-badges-mobile {
+    display: none;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+}
+.trust-badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.4);
+    color: #fff;
+    border-radius: 20px;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+/* MID-PAGE CALL STRIP — mobile only */
 .mobile-call-strip {
     display: none;
     background: var(--color-call-green);
@@ -172,73 +217,15 @@ a:hover { color: var(--color-green-dark); }
     justify-content: center;
     gap: 0.6rem;
     color: #fff;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 700;
     text-decoration: none;
 }
-.mobile-call-strip p { color: rgba(255,255,255,0.85); font-size: 0.9rem; margin: 0.4rem 0 0 0; }
+.mobile-call-strip p { color: rgba(255,255,255,0.85); font-size: 0.88rem; margin: 0.4rem 0 0 0; }
 
-/* =====================
-   FLOATING CALL BUTTON (mobile only, shows on scroll)
-   ===================== */
-.floating-call-btn {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-    background: var(--color-call-green);
-    color: #fff;
-    border-radius: 50px;
-    padding: 1rem 1.5rem;
-    font-weight: 700;
-    font-size: 1rem;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.35);
-    text-decoration: none;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
-}
-.floating-call-btn:hover { background: var(--color-call-green-hover); color: #fff; }
-
-/* =====================
-   SOCIAL PROOF BADGE (mobile hero)
-   ===================== */
-.mobile-social-proof {
-    background: rgba(255,255,255,0.95);
-    border-radius: var(--border-radius);
-    padding: 1rem;
-    margin-bottom: 1rem;
-    display: none;
-}
-.mobile-social-proof .stars { color: #F59E0B; font-size: 1.2rem; }
-.mobile-social-proof p { margin: 0; font-size: 0.9rem; color: var(--color-green-dark); font-weight: 600; }
-.trust-badges-mobile {
-    display: none;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-}
-.trust-badge {
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.4);
-    color: #fff;
-    border-radius: 20px;
-    padding: 0.3rem 0.8rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-/* =====================
-   REST OF SECTIONS
-   ===================== */
+/* REST OF SECTIONS */
 .section-header { text-align: center; max-width: 800px; margin: 0 auto var(--spacing-lg) auto; }
 .section-intro { font-size: 1.125rem; color: var(--color-gray-medium); margin-top: var(--spacing-sm); }
-.problem-section { padding: var(--spacing-xl) 0; background: var(--color-white); }
-.problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-md); margin-bottom: var(--spacing-md); }
-.problem-card { background: var(--color-gray-light); padding: var(--spacing-md); border-radius: var(--border-radius); text-align: center; }
-.problem-icon { font-size: 3rem; margin-bottom: var(--spacing-sm); }
-.problem-card h3 { color: var(--color-orange); font-size: 1.25rem; }
 .problem-solution { text-align: center; margin-top: var(--spacing-lg); }
 .lead-text { font-size: 1.5rem; font-weight: 600; color: var(--color-green-dark); }
 .solution-section { padding: var(--spacing-xl) 0; background: var(--color-cream); }
@@ -288,19 +275,17 @@ a:hover { color: var(--color-green-dark); }
 .footer a:hover { color: var(--color-orange); }
 .footer ul { list-style: none; padding-left: 0; }
 .footer li { margin-bottom: var(--spacing-xs); }
-.footer-bottom { text-align: center; padding-top: var(--spacing-md); border-top: 1px solid rgba(255, 255, 255, 0.2); font-size: 0.9rem; }
+.footer-bottom { text-align: center; padding-top: var(--spacing-md); border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.9rem; }
 
-/* =====================
-   MOBILE FORM (simplified 3-field, mobile only)
-   ===================== */
+/* MOBILE SIMPLIFIED FORM */
 .mobile-form-section {
     display: none;
     background: var(--color-cream);
     padding: var(--spacing-lg) var(--spacing-sm);
 }
-.mobile-form-section h3 { text-align: center; color: var(--color-green-dark); margin-bottom: 1rem; font-size: 1.2rem; }
+.mobile-form-section h3 { text-align: center; color: var(--color-green-dark); margin-bottom: 0.5rem; font-size: 1.2rem; }
 .mobile-form-section .form-group input,
-.mobile-form-section .form-group textarea { font-size: 16px; /* prevents iOS zoom */ }
+.mobile-form-section .form-group textarea { font-size: 16px; }
 .mobile-form-section button {
     width: 100%;
     padding: 1.1rem;
@@ -313,11 +298,9 @@ a:hover { color: var(--color-green-dark); }
     cursor: pointer;
 }
 
-/* =====================
-   DESKTOP RESPONSIVE
-   ===================== */
+/* TABLET */
 @media (max-width: 968px) {
-    .hero .container, .equipment-item, .areas-content, .contact-content { grid-template-columns: 1fr; }
+    .equipment-item, .areas-content, .contact-content { grid-template-columns: 1fr; }
     .trust-stack { grid-template-columns: 1fr; }
     .hero { background-attachment: scroll; }
     .nav-content { padding: var(--spacing-sm) var(--spacing-md); }
@@ -329,51 +312,56 @@ a:hover { color: var(--color-green-dark); }
     .services-grid { grid-template-columns: 1fr; }
 }
 
-/* =====================
-   MOBILE OVERRIDES (max 640px = phone)
-   ===================== */
+/* MOBILE — phones ≤640px */
 @media (max-width: 640px) {
     /* Show mobile-only elements */
     .mobile-call-banner { display: block; }
-    .mobile-hero-cta { display: block; padding: 1.5rem var(--spacing-sm) 0; }
     .mobile-social-proof { display: block; }
     .trust-badges-mobile { display: flex; }
+    .mobile-hero-cta { display: block; }
     .mobile-call-strip { display: block; }
     .floating-call-btn { display: flex; }
     .mobile-form-section { display: block; }
 
-    /* Navbar: show only logo on mobile, no sticky (banner replaces it) */
+    /* Navbar becomes non-sticky (banner takes over) */
     .navbar { position: relative; }
-    .nav-content { padding: 0.75rem var(--spacing-sm); }
-    .logo img { height: 55px; }
+    .nav-content { padding: 0.6rem var(--spacing-sm); }
+    .logo img { height: 50px; }
 
-    /* Hero: restructure for mobile */
+    /* Hero: full-width single column, no side-by-side anything */
     .hero {
         min-height: unset;
-        padding: 2rem 0 1.5rem;
+        padding: 1.75rem 0 1.5rem;
         background-attachment: scroll;
         align-items: flex-start;
+        display: block;
     }
-    .hero .container { padding: 0 var(--spacing-sm); }
-    .hero-content h1 { font-size: 1.65rem; margin-bottom: 0.5rem; }
-    .hero-content h1 .accent { font-size: 1.2rem; margin-top: 0.3rem; }
-    .hero-subhead { font-size: 1rem; margin-bottom: 0.75rem; }
+    .hero .container {
+        padding: 0 1rem;
+        max-width: 100%;
+        display: block;
+    }
+    .hero-content {
+        display: block;
+        width: 100%;
+    }
+    .hero-content h1 { font-size: 1.6rem; margin-bottom: 0.4rem; }
+    .hero-content h1 .accent { font-size: 1.15rem; margin-top: 0.25rem; }
+    .hero-subhead { font-size: 0.95rem; margin-bottom: 0.75rem; line-height: 1.55; }
 
-    /* Hide desktop CTA buttons, trust stack in hero on mobile */
+    /* Hide desktop elements in hero on mobile */
     .hero-cta { display: none; }
     .trust-stack { display: none; }
 
-    /* Push desktop contact form below mobile form */
+    /* Hide desktop contact section */
     .contact-section { display: none; }
 
-    /* Misc spacing */
+    /* Spacing */
     .solution-section, .services-section, .service-areas-section,
     .why-section, .process-section { padding: var(--spacing-lg) 0; }
-    .container { padding: 0 var(--spacing-sm); }
+    .container { padding: 0 1rem; }
     .equipment-item { padding: var(--spacing-sm); gap: var(--spacing-sm); }
     .equipment-item .equipment-image { order: -1; }
-
-    /* Mid-page call to action spacing */
     .problem-solution { margin-top: var(--spacing-md); }
 }
     </style>
@@ -398,31 +386,21 @@ a:hover { color: var(--color-green-dark); }
 </head>
 <body>
 
-    <!-- ============================================================
-         MOBILE CALL BANNER (sticky top, mobile only)
-         ============================================================ -->
+    <!-- MOBILE CALL BANNER — sticky top -->
     <div class="mobile-call-banner">
-        <a href="tel:+18135166973" onclick="fbq('track', 'Contact', {content_name: 'mobile_banner_call'});">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
+        <a href="tel:+18135166973" onclick="fbq('track','Contact',{content_name:'mobile_banner_call'});">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             TAP TO CALL &nbsp;·&nbsp; (813) 516-6973
         </a>
     </div>
 
-    <!-- ============================================================
-         FLOATING CALL BUTTON (mobile only, always visible on scroll)
-         ============================================================ -->
-    <a class="floating-call-btn" href="tel:+18135166973" onclick="fbq('track', 'Contact', {content_name: 'floating_call_btn'});">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-        </svg>
+    <!-- FLOATING CALL BUTTON -->
+    <a class="floating-call-btn" href="tel:+18135166973" onclick="fbq('track','Contact',{content_name:'floating_call_btn'});">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
         Call Now
     </a>
 
-    <!-- ============================================================
-         NAVBAR
-         ============================================================ -->
+    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="nav-content">
             <div class="logo">
@@ -437,22 +415,20 @@ a:hover { color: var(--color-green-dark); }
         </div>
     </nav>
 
-    <!-- ============================================================
-         HERO
-         ============================================================ -->
+    <!-- HERO — desktop and mobile content, NO mobile CTA inside here -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>Low Impact Tree Removal<br><span class="accent">Specialty Equipment & Expert Climbers</span></h1>
                 <p class="hero-subhead">Specialty equipment that accesses tight spaces other companies can't reach. We minimize impact to your property where other tree services can't. Quality and safety over everything.</p>
 
-                <!-- MOBILE: Social proof badge -->
+                <!-- Mobile: star rating -->
                 <div class="mobile-social-proof">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
                     <p>155+ Five-Star Reviews &nbsp;|&nbsp; ISA Certified &nbsp;|&nbsp; 12 Years Tampa</p>
                 </div>
 
-                <!-- MOBILE: Trust badges -->
+                <!-- Mobile: trust badges -->
                 <div class="trust-badges-mobile">
                     <span class="trust-badge">✓ Licensed & Insured</span>
                     <span class="trust-badge">✓ Arborist On Staff</span>
@@ -460,91 +436,66 @@ a:hover { color: var(--color-green-dark); }
                     <span class="trust-badge">✓ Two Crews Available</span>
                 </div>
 
-                <!-- DESKTOP: trust stack -->
+                <!-- Desktop: trust grid -->
                 <div class="trust-stack">
                     <div class="trust-item">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                         <span>12 Years Serving Tampa</span>
                     </div>
                     <div class="trust-item">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                         <span>155+ Five-Star Reviews</span>
                     </div>
                     <div class="trust-item">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                         <span>Licensed & Fully Insured</span>
                     </div>
                     <div class="trust-item">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                         <span>Arborist On Staff</span>
                     </div>
                 </div>
 
-                <!-- DESKTOP CTA -->
+                <!-- Desktop CTA buttons -->
                 <div class="hero-cta">
                     <a href="#contact" class="cta-button-large">Get Free Property Assessment</a>
                     <a href="tel:+18135166973" class="phone-button">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                         (813) 516-6973
                     </a>
                 </div>
-
             </div>
-        </div>
-
-        <!-- MOBILE HERO CTA (injected below hero image, above fold) -->
-        <div class="mobile-hero-cta container">
-            <a class="btn-call-big" href="tel:+18135166973" onclick="fbq('track', 'Contact', {content_name: 'hero_call_btn'});">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
-                📞 CALL (813) 516-6973
-            </a>
-            <a class="btn-call-secondary" href="#mobile-form">
-                ✉ Prefer a form? Tap here
-            </a>
-            <p style="color:rgba(255,255,255,0.8); font-size:0.85rem; text-align:center; margin:0;">We typically respond within 2 hours • Free quotes</p>
         </div>
     </section>
 
-    <!-- ============================================================
-         MID-PAGE MOBILE CALL STRIP
-         ============================================================ -->
-    <div class="mobile-call-strip">
-        <a href="tel:+18135166973" onclick="fbq('track', 'Contact', {content_name: 'midpage_call_strip'});">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            (813) 516-6973 — Tap to Call Now
+    <!-- MOBILE CTA BLOCK — outside/below hero, full width, stacked vertically -->
+    <div class="mobile-hero-cta">
+        <a class="btn-call-big" href="tel:+18135166973" onclick="fbq('track','Contact',{content_name:'hero_call_btn'});">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            📞 CALL (813) 516-6973
         </a>
-        <p>Two crews available • Fast response • Free quotes</p>
+        <a class="btn-call-secondary" href="#mobile-form">
+            ✉ Prefer a form? Tap here
+        </a>
+        <p class="response-note">We typically respond within 2 hours &nbsp;•&nbsp; Free quotes</p>
     </div>
 
-    <!-- ============================================================
-         EQUIPMENT / SOLUTION
-         ============================================================ -->
+    <!-- MID-PAGE CALL STRIP — mobile only -->
+    <div class="mobile-call-strip">
+        <a href="tel:+18135166973" onclick="fbq('track','Contact',{content_name:'midpage_call_strip'});">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            (813) 516-6973 — Tap to Call Now
+        </a>
+        <p>Two crews available &nbsp;•&nbsp; Fast response &nbsp;•&nbsp; Free quotes</p>
+    </div>
+
+    <!-- EQUIPMENT / SOLUTION -->
     <section class="solution-section">
         <div class="container">
             <div class="section-header">
                 <h2>We Specialize in Tree Work Other Companies Can't Do</h2>
                 <p class="section-intro">Clarke's Pro Tree Service operates specialized equipment designed for Tampa's tight spaces.</p>
             </div>
-            
             <div class="equipment-showcase">
                 <div class="equipment-item">
                     <div class="equipment-image">
@@ -559,7 +510,6 @@ a:hover { color: var(--color-green-dark); }
                         </ul>
                     </div>
                 </div>
-
                 <div class="equipment-item">
                     <div class="equipment-content">
                         <h3>Our Articulated Bobcat</h3>
@@ -574,67 +524,42 @@ a:hover { color: var(--color-green-dark); }
                     </div>
                 </div>
             </div>
-
             <div class="problem-solution">
                 <p class="lead-text">The result? You pay for tree work - not fence removal, not lawn replacement, not property restoration. Just professional tree service that respects your property.</p>
             </div>
         </div>
     </section>
 
-    <!-- ============================================================
-         SERVICES
-         ============================================================ -->
+    <!-- SERVICES -->
     <section id="services" class="services-section">
         <div class="container">
             <div class="section-header">
                 <h2>Professional Tree Services for Tampa's Premium Neighborhoods</h2>
             </div>
-            
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                        </svg>
-                    </div>
+                    <div class="service-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div>
                     <h3>Backyard Tree Removal</h3>
                     <p>Our specialty. When other companies say "we can't access that," we show you how we can. Perfect for Lake Magdalene, Carrollwood, and Forest Hills properties with mature trees and limited access.</p>
                     <p class="service-includes"><strong>What's included:</strong> Complete removal, stump grinding, debris cleanup, full site restoration.</p>
                     <a href="tel:+18135166973" class="service-cta">Call for Free Quote →</a>
                 </div>
-
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 8l4 4-4 4M3 12h18"></path>
-                        </svg>
-                    </div>
+                    <div class="service-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8l4 4-4 4M3 12h18"></path></svg></div>
                     <h3>Tree Trimming & Pruning</h3>
                     <p>Keep your oak canopy healthy and storm-ready. Our arborist-guided approach maintains tree health while improving safety and appearance.</p>
                     <p class="service-includes"><strong>What's included:</strong> Strategic pruning, deadwood removal, canopy shaping, property protection.</p>
                     <a href="tel:+18135166973" class="service-cta">Call for Free Quote →</a>
                 </div>
-
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M12 8v8M8 12h8"></path>
-                        </svg>
-                    </div>
+                    <div class="service-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8M8 12h8"></path></svg></div>
                     <h3>Stump Grinding</h3>
                     <p>Professional grinding that removes stumps below grade. Our equipment accesses tight spaces without tearing up surrounding landscape.</p>
                     <p class="service-includes"><strong>What's included:</strong> Below-grade grinding, debris removal, area leveling.</p>
                     <a href="tel:+18135166973" class="service-cta">Call for Free Quote →</a>
                 </div>
-
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-                        </svg>
-                    </div>
+                    <div class="service-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg></div>
                     <h3>Storm Damage & Emergency Response</h3>
                     <p>Fast response when weather damages your trees. Two crews available for urgent situations throughout our service area.</p>
                     <p class="service-includes"><strong>What's included:</strong> 24-hour emergency availability, safe removal of damaged trees, property protection during work.</p>
@@ -644,16 +569,13 @@ a:hover { color: var(--color-green-dark); }
         </div>
     </section>
 
-    <!-- ============================================================
-         SERVICE AREAS
-         ============================================================ -->
+    <!-- SERVICE AREAS -->
     <section id="service-areas" class="service-areas-section">
         <div class="container">
             <div class="section-header">
                 <h2>Serving Tampa's Heritage Tree Neighborhoods</h2>
                 <p class="section-intro">We focus on communities where mature trees and property values matter. Our equipment and expertise are designed for the established neighborhoods where Tampa's best trees grow.</p>
             </div>
-            
             <div class="areas-content">
                 <div class="areas-list">
                     <h3>Primary Service Areas:</h3>
@@ -673,99 +595,42 @@ a:hover { color: var(--color-green-dark); }
         </div>
     </section>
 
-    <!-- ============================================================
-         WHY CHOOSE US
-         ============================================================ -->
+    <!-- WHY CHOOSE US -->
     <section id="why-choose-us" class="why-section">
         <div class="container">
             <div class="section-header">
                 <h2>Why Choose Clarke's Pro Tree Service</h2>
             </div>
-            
             <div class="why-grid">
-                <div class="why-card">
-                    <div class="why-icon">⭐</div>
-                    <h3>155+ Five-Star Reviews</h3>
-                    <p>Our reputation is built on customer satisfaction. Read what Lake Magdalene and Carrollwood homeowners say about our work, our equipment, and our professionalism.</p>
-                </div>
-
-                <div class="why-card">
-                    <div class="why-icon">🛡️</div>
-                    <h3>Quality & Safety First</h3>
-                    <p>We focus on quality and safety over everything. Our specialty equipment and expert climbers deliver professional results you can trust.</p>
-                </div>
-
-                <div class="why-card">
-                    <div class="why-icon">🚧</div>
-                    <h3>Access Tight Spaces</h3>
-                    <p>Our specialty equipment fits into tighter places than anyone else. We get into spaces other companies simply can't reach.</p>
-                </div>
-
-                <div class="why-card">
-                    <div class="why-icon">✓</div>
-                    <h3>Licensed, Insured & Certified</h3>
-                    <p>Full licensing and insurance coverage for your protection. Arborist on staff for expert tree health assessment and guidance.</p>
-                </div>
-
-                <div class="why-card">
-                    <div class="why-icon">🔧</div>
-                    <h3>Specialized Equipment Investment</h3>
-                    <p>We've invested in equipment specifically designed for Tampa tight yard access. Most tree services use standard equipment. We use tools built for your property's needs.</p>
-                </div>
-
-                <div class="why-card">
-                    <div class="why-icon">📅</div>
-                    <h3>12 Years Serving Tampa</h3>
-                    <p>Over a decade of experience in Tampa's unique tree landscape. We understand the local challenges and have the solutions to match.</p>
-                </div>
+                <div class="why-card"><div class="why-icon">⭐</div><h3>155+ Five-Star Reviews</h3><p>Our reputation is built on customer satisfaction. Read what Lake Magdalene and Carrollwood homeowners say about our work, our equipment, and our professionalism.</p></div>
+                <div class="why-card"><div class="why-icon">🛡️</div><h3>Quality & Safety First</h3><p>We focus on quality and safety over everything. Our specialty equipment and expert climbers deliver professional results you can trust.</p></div>
+                <div class="why-card"><div class="why-icon">🚧</div><h3>Access Tight Spaces</h3><p>Our specialty equipment fits into tighter places than anyone else. We get into spaces other companies simply can't reach.</p></div>
+                <div class="why-card"><div class="why-icon">✓</div><h3>Licensed, Insured & Certified</h3><p>Full licensing and insurance coverage for your protection. Arborist on staff for expert tree health assessment and guidance.</p></div>
+                <div class="why-card"><div class="why-icon">🔧</div><h3>Specialized Equipment Investment</h3><p>We've invested in equipment specifically designed for Tampa tight yard access. Most tree services use standard equipment. We use tools built for your property's needs.</p></div>
+                <div class="why-card"><div class="why-icon">📅</div><h3>12 Years Serving Tampa</h3><p>Over a decade of experience in Tampa's unique tree landscape. We understand the local challenges and have the solutions to match.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================================
-         PROCESS
-         ============================================================ -->
+    <!-- PROCESS -->
     <section class="process-section">
         <div class="container">
             <div class="section-header">
                 <h2>How It Works</h2>
             </div>
-            
             <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Free Assessment</h3>
-                    <p>We come to your property, assess the tree situation, and explain exactly what we'll do and how we'll protect your property during the work.</p>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Transparent Pricing</h3>
-                    <p>You get a detailed estimate with no hidden fees. We explain the scope, timeline, and our approach. Ask any questions you want.</p>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Scheduled Service</h3>
-                    <p>We show up on time with the right equipment. Our crews work efficiently and professionally. We protect your property throughout the process.</p>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Complete Cleanup</h3>
-                    <p>We remove all debris, clean the work area, and leave your property looking better than we found it.</p>
-                </div>
+                <div class="process-step"><div class="step-number">1</div><h3>Free Assessment</h3><p>We come to your property, assess the tree situation, and explain exactly what we'll do and how we'll protect your property during the work.</p></div>
+                <div class="process-step"><div class="step-number">2</div><h3>Transparent Pricing</h3><p>You get a detailed estimate with no hidden fees. We explain the scope, timeline, and our approach. Ask any questions you want.</p></div>
+                <div class="process-step"><div class="step-number">3</div><h3>Scheduled Service</h3><p>We show up on time with the right equipment. Our crews work efficiently and professionally. We protect your property throughout the process.</p></div>
+                <div class="process-step"><div class="step-number">4</div><h3>Complete Cleanup</h3><p>We remove all debris, clean the work area, and leave your property looking better than we found it.</p></div>
             </div>
-
             <div class="problem-solution">
                 <a href="#contact" class="cta-button-large">Schedule Your Free Assessment</a>
             </div>
         </div>
     </section>
 
-    <!-- ============================================================
-         MOBILE SIMPLIFIED FORM (3 fields, mobile only)
-         ============================================================ -->
+    <!-- MOBILE SIMPLIFIED FORM (3 fields) -->
     <section class="mobile-form-section" id="mobile-form">
         <div class="container">
             <h3>Prefer to Fill Out a Form?</h3>
@@ -784,30 +649,25 @@ a:hover { color: var(--color-green-dark); }
                     <textarea id="m-message" name="message" rows="3" placeholder="e.g. Big oak over my roof, need it removed ASAP"></textarea>
                 </div>
                 <input type="hidden" name="source" value="mobile_simplified_form">
-                <button type="submit" onclick="fbq('track', 'Lead', {content_name: 'mobile_form_submit'});">Send Request</button>
+                <button type="submit" onclick="fbq('track','Lead',{content_name:'mobile_form_submit'});">Send Request</button>
             </form>
         </div>
     </section>
 
-    <!-- ============================================================
-         DESKTOP CONTACT SECTION (hidden on mobile via CSS)
-         ============================================================ -->
+    <!-- DESKTOP CONTACT SECTION (hidden on mobile) -->
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="contact-content">
                 <div class="contact-info">
                     <h2>Schedule Your Free Property Assessment</h2>
                     <p class="contact-intro">Fill out the form below for a free estimate. We'll reach out as soon as possible to schedule your in-person assessment.</p>
-                    
                     <p class="contact-promise">Two crews available. Professional equipment. Certified arborists on staff. 12 years serving Tampa.</p>
-
                     <div class="contact-methods">
                         <div class="contact-method">
                             <h3>Call/Text</h3>
                             <a href="tel:+18135166973" class="contact-link">(813) 516-6973</a>
                             <p>Fastest response. We typically reply within 2 hours.</p>
                         </div>
-
                         <div class="contact-method">
                             <h3>Email</h3>
                             <a href="mailto:clarkesprotrees@gmail.com" class="contact-link">clarkesprotrees@gmail.com</a>
@@ -815,30 +675,13 @@ a:hover { color: var(--color-green-dark); }
                         </div>
                     </div>
                 </div>
-
                 <div class="contact-form">
                     <h3>Request Assessment Online</h3>
                     <form action="https://fabform.io/f/r51ZoNM" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Phone *</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="address">Property Address *</label>
-                            <input type="text" id="address" name="address" required>
-                        </div>
-
+                        <div class="form-group"><label for="name">Name *</label><input type="text" id="name" name="name" required></div>
+                        <div class="form-group"><label for="phone">Phone *</label><input type="tel" id="phone" name="phone" required></div>
+                        <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email"></div>
+                        <div class="form-group"><label for="address">Property Address *</label><input type="text" id="address" name="address" required></div>
                         <div class="form-group">
                             <label for="service">Service Needed *</label>
                             <select id="service" name="service" required>
@@ -850,7 +693,6 @@ a:hover { color: var(--color-green-dark); }
                                 <option value="not-sure">Not Sure - Need Assessment</option>
                             </select>
                         </div>
-
                         <div class="form-group">
                             <label for="timeline">Timeline *</label>
                             <select id="timeline" name="timeline" required>
@@ -860,12 +702,7 @@ a:hover { color: var(--color-green-dark); }
                                 <option value="flexible">Flexible</option>
                             </select>
                         </div>
-
-                        <div class="form-group">
-                            <label for="message">Additional Details</label>
-                            <textarea id="message" name="message" rows="4"></textarea>
-                        </div>
-
+                        <div class="form-group"><label for="message">Additional Details</label><textarea id="message" name="message" rows="4"></textarea></div>
                         <button type="submit" class="cta-button-large">Send Request</button>
                     </form>
                 </div>
@@ -873,9 +710,7 @@ a:hover { color: var(--color-green-dark); }
         </div>
     </section>
 
-    <!-- ============================================================
-         FOOTER
-         ============================================================ -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -883,14 +718,12 @@ a:hover { color: var(--color-green-dark); }
                     <img src="images/clarkes-pro-logo-white.png" alt="Clarke's Pro Tree Service" class="footer-logo">
                     <p>Tampa's backyard tree specialists. Professional tree service that respects your property.</p>
                 </div>
-
                 <div class="footer-column">
                     <h4>Contact</h4>
                     <p><a href="tel:+18135166973">(813) 516-6973</a></p>
                     <p><a href="mailto:clarkesprotrees@gmail.com">clarkesprotrees@gmail.com</a></p>
                     <p>Serving Tampa & Surrounding Areas</p>
                 </div>
-
                 <div class="footer-column">
                     <h4>Services</h4>
                     <ul>
@@ -900,7 +733,6 @@ a:hover { color: var(--color-green-dark); }
                         <li><a href="#services">Emergency Service</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-column">
                     <h4>Credentials</h4>
                     <ul>
@@ -911,26 +743,21 @@ a:hover { color: var(--color-green-dark); }
                     </ul>
                 </div>
                 <div class="footer-column">
-    <h4>Follow Us</h4>
-    <div class="social-icons" style="display: flex; gap: 1rem;">
-        <a href="https://www.facebook.com/clarkesprotrees" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-        </a>
-        <a href="http://instagram.com/clarkesprotrees88/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-        </a>
-    </div>
-</div>
+                    <h4>Follow Us</h4>
+                    <div class="social-icons" style="display:flex;gap:1rem;">
+                        <a href="https://www.facebook.com/clarkesprotrees" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="http://instagram.com/clarkesprotrees88/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
             </div>
-
             <div class="footer-bottom">
-    <p>&copy; 2026 Clarke's Pro Tree Service. All rights reserved.</p>
-    <p>Tampa, FL | Lake Magdalene | Carrollwood | Forest Hills | North Tampa</p>
-    <p style="font-size: 0.85rem; margin-top: 1rem; opacity: 0.8;">At Clarke's Pro Tree Service, we prioritize clear, consistent communication from your first call to the final cleanup. Whether you need expert tree trimming, safe tree removal, stump grinding, or a full property assessment, our Tampa Bay–owned team is here to help. Have questions, special requests, or want a free tree service quote from Clarke's Tree Service or Clarke's Pro Services? Send us a message anytime. We're committed to improving the value, longevity, safety, and appearance of your land.</p>
+                <p>&copy; 2026 Clarke's Pro Tree Service. All rights reserved.</p>
+                <p>Tampa, FL | Lake Magdalene | Carrollwood | Forest Hills | North Tampa</p>
+                <p style="font-size:0.85rem;margin-top:1rem;opacity:0.8;">At Clarke's Pro Tree Service, we prioritize clear, consistent communication from your first call to the final cleanup. Whether you need expert tree trimming, safe tree removal, stump grinding, or a full property assessment, our Tampa Bay–owned team is here to help. Have questions, special requests, or want a free tree service quote from Clarke's Tree Service or Clarke's Pro Services? Send us a message anytime. We're committed to improving the value, longevity, safety, and appearance of your land.</p>
             </div>
         </div>
     </footer>
