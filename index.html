@@ -19,6 +19,8 @@
     --color-gray-light: #f5f5f5;
     --color-gray-medium: #666666;
     --color-gray-dark: #2d2d2d;
+    --color-call-green: #1a7c2a;
+    --color-call-green-hover: #155f20;
     --font-primary: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
@@ -41,17 +43,97 @@ h3 { font-size: 1.75rem; }
 p { margin-bottom: var(--spacing-sm); }
 a { color: var(--color-orange); text-decoration: none; transition: all 0.3s ease; }
 a:hover { color: var(--color-green-dark); }
+
+/* =====================
+   MOBILE CALL BANNER (shows only on mobile)
+   ===================== */
+.mobile-call-banner {
+    display: none;
+    background: var(--color-call-green);
+    padding: 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.mobile-call-banner a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+.mobile-call-banner a:hover { color: #fff; opacity: 0.9; }
+
+/* =====================
+   NAVBAR
+   ===================== */
 .navbar { background: var(--color-white); box-shadow: var(--box-shadow); position: sticky; top: 0; z-index: 1000; width: 100%; }
 .nav-content { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: var(--spacing-sm) 40px; }
 .logo img { height: 80px; width: auto; }
 .nav-links { display: flex; gap: var(--spacing-md); align-items: center; }
 .nav-links a { color: var(--color-green-dark); font-weight: 500; padding: 0.5rem 1rem; }
 .nav-links a:hover { color: var(--color-orange); }
+
+/* =====================
+   BUTTONS
+   ===================== */
 .cta-button, .cta-button-large { display: inline-block; padding: 1rem 2rem; background: var(--color-orange); color: var(--color-white); font-weight: 600; border-radius: var(--border-radius); border: none; cursor: pointer; transition: all 0.3s ease; }
 .cta-button:hover, .cta-button-large:hover { background: var(--color-green-dark); color: var(--color-white); transform: translateY(-2px); box-shadow: var(--box-shadow-lg); }
 .cta-button-large { padding: 1.25rem 3rem; font-size: 1.125rem; }
 .phone-button { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: var(--color-green-dark); color: var(--color-white); font-weight: 600; border-radius: var(--border-radius); transition: all 0.3s ease; }
 .phone-button:hover { background: var(--color-orange); color: var(--color-white); }
+
+/* Big green call button for mobile hero */
+.btn-call-big {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1.4rem 1rem;
+    background: var(--color-call-green);
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(26,124,42,0.4);
+    letter-spacing: 0.3px;
+    margin-bottom: 0.75rem;
+}
+.btn-call-big:hover { background: var(--color-call-green-hover); color: #fff; transform: translateY(-2px); }
+.btn-call-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 1.1rem 1rem;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+.btn-call-secondary:hover { background: rgba(255,255,255,0.15); color: #fff; }
+
+/* =====================
+   HERO
+   ===================== */
 .hero { 
     background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('images/equip-clarkes-pro-tree-service.png');
     background-size: cover;
@@ -63,10 +145,7 @@ a:hover { color: var(--color-green-dark); }
     display: flex;
     align-items: center;
 }
-.hero .container { 
-    display: block;
-    max-width: 900px;
-}
+.hero .container { display: block; max-width: 900px; }
 .hero-content h1 { color: var(--color-white); }
 .hero-content h1 .accent { color: var(--color-orange); display: block; margin-top: var(--spacing-sm); }
 .hero-subhead { font-size: 1.25rem; color: var(--color-white); margin-bottom: var(--spacing-md); }
@@ -74,7 +153,85 @@ a:hover { color: var(--color-green-dark); }
 .trust-item { display: flex; align-items: center; gap: 0.5rem; color: var(--color-green-dark); font-weight: 500; }
 .trust-item svg { color: var(--color-orange); flex-shrink: 0; }
 .hero-cta { display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-md); flex-wrap: wrap; }
-.hero-image img { border-radius: 0; box-shadow: var(--box-shadow-lg); }
+
+/* Mobile hero CTA block (hidden on desktop) */
+.mobile-hero-cta { display: none; }
+
+/* =====================
+   MOBILE CALL STRIP (mid-page, mobile only)
+   ===================== */
+.mobile-call-strip {
+    display: none;
+    background: var(--color-call-green);
+    padding: 1.5rem var(--spacing-sm);
+    text-align: center;
+}
+.mobile-call-strip a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+.mobile-call-strip p { color: rgba(255,255,255,0.85); font-size: 0.9rem; margin: 0.4rem 0 0 0; }
+
+/* =====================
+   FLOATING CALL BUTTON (mobile only, shows on scroll)
+   ===================== */
+.floating-call-btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: var(--color-call-green);
+    color: #fff;
+    border-radius: 50px;
+    padding: 1rem 1.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+    text-decoration: none;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+.floating-call-btn:hover { background: var(--color-call-green-hover); color: #fff; }
+
+/* =====================
+   SOCIAL PROOF BADGE (mobile hero)
+   ===================== */
+.mobile-social-proof {
+    background: rgba(255,255,255,0.95);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: none;
+}
+.mobile-social-proof .stars { color: #F59E0B; font-size: 1.2rem; }
+.mobile-social-proof p { margin: 0; font-size: 0.9rem; color: var(--color-green-dark); font-weight: 600; }
+.trust-badges-mobile {
+    display: none;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+.trust-badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.4);
+    color: #fff;
+    border-radius: 20px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* =====================
+   REST OF SECTIONS
+   ===================== */
 .section-header { text-align: center; max-width: 800px; margin: 0 auto var(--spacing-lg) auto; }
 .section-intro { font-size: 1.125rem; color: var(--color-gray-medium); margin-top: var(--spacing-sm); }
 .problem-section { padding: var(--spacing-xl) 0; background: var(--color-white); }
@@ -132,6 +289,33 @@ a:hover { color: var(--color-green-dark); }
 .footer ul { list-style: none; padding-left: 0; }
 .footer li { margin-bottom: var(--spacing-xs); }
 .footer-bottom { text-align: center; padding-top: var(--spacing-md); border-top: 1px solid rgba(255, 255, 255, 0.2); font-size: 0.9rem; }
+
+/* =====================
+   MOBILE FORM (simplified 3-field, mobile only)
+   ===================== */
+.mobile-form-section {
+    display: none;
+    background: var(--color-cream);
+    padding: var(--spacing-lg) var(--spacing-sm);
+}
+.mobile-form-section h3 { text-align: center; color: var(--color-green-dark); margin-bottom: 1rem; font-size: 1.2rem; }
+.mobile-form-section .form-group input,
+.mobile-form-section .form-group textarea { font-size: 16px; /* prevents iOS zoom */ }
+.mobile-form-section button {
+    width: 100%;
+    padding: 1.1rem;
+    background: var(--color-orange);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+/* =====================
+   DESKTOP RESPONSIVE
+   ===================== */
 @media (max-width: 968px) {
     .hero .container, .equipment-item, .areas-content, .contact-content { grid-template-columns: 1fr; }
     .trust-stack { grid-template-columns: 1fr; }
@@ -143,6 +327,54 @@ a:hover { color: var(--color-green-dark); }
     h2 { font-size: 1.75rem; }
     .nav-links { display: none; }
     .services-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================
+   MOBILE OVERRIDES (max 640px = phone)
+   ===================== */
+@media (max-width: 640px) {
+    /* Show mobile-only elements */
+    .mobile-call-banner { display: block; }
+    .mobile-hero-cta { display: block; padding: 1.5rem var(--spacing-sm) 0; }
+    .mobile-social-proof { display: block; }
+    .trust-badges-mobile { display: flex; }
+    .mobile-call-strip { display: block; }
+    .floating-call-btn { display: flex; }
+    .mobile-form-section { display: block; }
+
+    /* Navbar: show only logo on mobile, no sticky (banner replaces it) */
+    .navbar { position: relative; }
+    .nav-content { padding: 0.75rem var(--spacing-sm); }
+    .logo img { height: 55px; }
+
+    /* Hero: restructure for mobile */
+    .hero {
+        min-height: unset;
+        padding: 2rem 0 1.5rem;
+        background-attachment: scroll;
+        align-items: flex-start;
+    }
+    .hero .container { padding: 0 var(--spacing-sm); }
+    .hero-content h1 { font-size: 1.65rem; margin-bottom: 0.5rem; }
+    .hero-content h1 .accent { font-size: 1.2rem; margin-top: 0.3rem; }
+    .hero-subhead { font-size: 1rem; margin-bottom: 0.75rem; }
+
+    /* Hide desktop CTA buttons, trust stack in hero on mobile */
+    .hero-cta { display: none; }
+    .trust-stack { display: none; }
+
+    /* Push desktop contact form below mobile form */
+    .contact-section { display: none; }
+
+    /* Misc spacing */
+    .solution-section, .services-section, .service-areas-section,
+    .why-section, .process-section { padding: var(--spacing-lg) 0; }
+    .container { padding: 0 var(--spacing-sm); }
+    .equipment-item { padding: var(--spacing-sm); gap: var(--spacing-sm); }
+    .equipment-item .equipment-image { order: -1; }
+
+    /* Mid-page call to action spacing */
+    .problem-solution { margin-top: var(--spacing-md); }
 }
     </style>
     
@@ -165,6 +397,32 @@ a:hover { color: var(--color-green-dark); }
     <!-- End Meta Pixel Code -->
 </head>
 <body>
+
+    <!-- ============================================================
+         MOBILE CALL BANNER (sticky top, mobile only)
+         ============================================================ -->
+    <div class="mobile-call-banner">
+        <a href="tel:+18135166973" onclick="fbq('track', 'Contact', {content_name: 'mobile_banner_call'});">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            TAP TO CALL &nbsp;·&nbsp; (813) 516-6973
+        </a>
+    </div>
+
+    <!-- ============================================================
+         FLOATING CALL BUTTON (mobile only, always visible on scroll)
+         ============================================================ -->
+    <a class="floating-call-btn" href="tel:+18135166973" onclick="fbq('track', 'Contact', {content_name: 'floating_call_btn'});">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        Call Now
+    </a>
+
+    <!-- ============================================================
+         NAVBAR
+         ============================================================ -->
     <nav class="navbar">
         <div class="nav-content">
             <div class="logo">
@@ -179,12 +437,30 @@ a:hover { color: var(--color-green-dark); }
         </div>
     </nav>
 
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>Low Impact Tree Removal<br><span class="accent">Specialty Equipment & Expert Climbers</span></h1>
                 <p class="hero-subhead">Specialty equipment that accesses tight spaces other companies can't reach. We minimize impact to your property where other tree services can't. Quality and safety over everything.</p>
-                
+
+                <!-- MOBILE: Social proof badge -->
+                <div class="mobile-social-proof">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>155+ Five-Star Reviews &nbsp;|&nbsp; ISA Certified &nbsp;|&nbsp; 12 Years Tampa</p>
+                </div>
+
+                <!-- MOBILE: Trust badges -->
+                <div class="trust-badges-mobile">
+                    <span class="trust-badge">✓ Licensed & Insured</span>
+                    <span class="trust-badge">✓ Arborist On Staff</span>
+                    <span class="trust-badge">✓ 2-Hour Response</span>
+                    <span class="trust-badge">✓ Two Crews Available</span>
+                </div>
+
+                <!-- DESKTOP: trust stack -->
                 <div class="trust-stack">
                     <div class="trust-item">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -217,19 +493,51 @@ a:hover { color: var(--color-green-dark); }
                     </div>
                 </div>
 
+                <!-- DESKTOP CTA -->
                 <div class="hero-cta">
                     <a href="#contact" class="cta-button-large">Get Free Property Assessment</a>
-                    <a href="tel:8135166973" class="phone-button">
+                    <a href="tel:+18135166973" class="phone-button">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
                         (813) 516-6973
                     </a>
                 </div>
+
             </div>
+        </div>
+
+        <!-- MOBILE HERO CTA (injected below hero image, above fold) -->
+        <div class="mobile-hero-cta container">
+            <a class="btn-call-big" href="tel:+18135166973" onclick="fbq('track', 'Contact', {content_name: 'hero_call_btn'});">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                📞 CALL (813) 516-6973
+            </a>
+            <a class="btn-call-secondary" href="#mobile-form">
+                ✉ Prefer a form? Tap here
+            </a>
+            <p style="color:rgba(255,255,255,0.8); font-size:0.85rem; text-align:center; margin:0;">We typically respond within 2 hours • Free quotes</p>
         </div>
     </section>
 
+    <!-- ============================================================
+         MID-PAGE MOBILE CALL STRIP
+         ============================================================ -->
+    <div class="mobile-call-strip">
+        <a href="tel:+18135166973" onclick="fbq('track', 'Contact', {content_name: 'midpage_call_strip'});">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            (813) 516-6973 — Tap to Call Now
+        </a>
+        <p>Two crews available • Fast response • Free quotes</p>
+    </div>
+
+    <!-- ============================================================
+         EQUIPMENT / SOLUTION
+         ============================================================ -->
     <section class="solution-section">
         <div class="container">
             <div class="section-header">
@@ -273,6 +581,9 @@ a:hover { color: var(--color-green-dark); }
         </div>
     </section>
 
+    <!-- ============================================================
+         SERVICES
+         ============================================================ -->
     <section id="services" class="services-section">
         <div class="container">
             <div class="section-header">
@@ -290,7 +601,7 @@ a:hover { color: var(--color-green-dark); }
                     <h3>Backyard Tree Removal</h3>
                     <p>Our specialty. When other companies say "we can't access that," we show you how we can. Perfect for Lake Magdalene, Carrollwood, and Forest Hills properties with mature trees and limited access.</p>
                     <p class="service-includes"><strong>What's included:</strong> Complete removal, stump grinding, debris cleanup, full site restoration.</p>
-                    <a href="#contact" class="service-cta">Request Free Assessment →</a>
+                    <a href="tel:+18135166973" class="service-cta">Call for Free Quote →</a>
                 </div>
 
                 <div class="service-card">
@@ -302,7 +613,7 @@ a:hover { color: var(--color-green-dark); }
                     <h3>Tree Trimming & Pruning</h3>
                     <p>Keep your oak canopy healthy and storm-ready. Our arborist-guided approach maintains tree health while improving safety and appearance.</p>
                     <p class="service-includes"><strong>What's included:</strong> Strategic pruning, deadwood removal, canopy shaping, property protection.</p>
-                    <a href="#contact" class="service-cta">Request Free Assessment →</a>
+                    <a href="tel:+18135166973" class="service-cta">Call for Free Quote →</a>
                 </div>
 
                 <div class="service-card">
@@ -315,7 +626,7 @@ a:hover { color: var(--color-green-dark); }
                     <h3>Stump Grinding</h3>
                     <p>Professional grinding that removes stumps below grade. Our equipment accesses tight spaces without tearing up surrounding landscape.</p>
                     <p class="service-includes"><strong>What's included:</strong> Below-grade grinding, debris removal, area leveling.</p>
-                    <a href="#contact" class="service-cta">Request Free Assessment →</a>
+                    <a href="tel:+18135166973" class="service-cta">Call for Free Quote →</a>
                 </div>
 
                 <div class="service-card">
@@ -327,12 +638,15 @@ a:hover { color: var(--color-green-dark); }
                     <h3>Storm Damage & Emergency Response</h3>
                     <p>Fast response when weather damages your trees. Two crews available for urgent situations throughout our service area.</p>
                     <p class="service-includes"><strong>What's included:</strong> 24-hour emergency availability, safe removal of damaged trees, property protection during work.</p>
-                    <a href="#contact" class="service-cta">Request Free Assessment →</a>
+                    <a href="tel:+18135166973" class="service-cta">Call Now — Emergency Response →</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ============================================================
+         SERVICE AREAS
+         ============================================================ -->
     <section id="service-areas" class="service-areas-section">
         <div class="container">
             <div class="section-header">
@@ -359,6 +673,9 @@ a:hover { color: var(--color-green-dark); }
         </div>
     </section>
 
+    <!-- ============================================================
+         WHY CHOOSE US
+         ============================================================ -->
     <section id="why-choose-us" class="why-section">
         <div class="container">
             <div class="section-header">
@@ -405,6 +722,9 @@ a:hover { color: var(--color-green-dark); }
         </div>
     </section>
 
+    <!-- ============================================================
+         PROCESS
+         ============================================================ -->
     <section class="process-section">
         <div class="container">
             <div class="section-header">
@@ -443,6 +763,35 @@ a:hover { color: var(--color-green-dark); }
         </div>
     </section>
 
+    <!-- ============================================================
+         MOBILE SIMPLIFIED FORM (3 fields, mobile only)
+         ============================================================ -->
+    <section class="mobile-form-section" id="mobile-form">
+        <div class="container">
+            <h3>Prefer to Fill Out a Form?</h3>
+            <p style="text-align:center; color:var(--color-gray-medium); margin-bottom:1.5rem;">We'll call you back fast.</p>
+            <form action="https://fabform.io/f/r51ZoNM" method="POST">
+                <div class="form-group">
+                    <label for="m-name">Your Name *</label>
+                    <input type="text" id="m-name" name="name" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="m-phone">Phone Number *</label>
+                    <input type="tel" id="m-phone" name="phone" required autocomplete="tel">
+                </div>
+                <div class="form-group">
+                    <label for="m-message">What do you need?</label>
+                    <textarea id="m-message" name="message" rows="3" placeholder="e.g. Big oak over my roof, need it removed ASAP"></textarea>
+                </div>
+                <input type="hidden" name="source" value="mobile_simplified_form">
+                <button type="submit" onclick="fbq('track', 'Lead', {content_name: 'mobile_form_submit'});">Send Request</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         DESKTOP CONTACT SECTION (hidden on mobile via CSS)
+         ============================================================ -->
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="contact-content">
@@ -455,7 +804,7 @@ a:hover { color: var(--color-green-dark); }
                     <div class="contact-methods">
                         <div class="contact-method">
                             <h3>Call/Text</h3>
-                            <a href="tel:8135166973" class="contact-link">(813) 516-6973</a>
+                            <a href="tel:+18135166973" class="contact-link">(813) 516-6973</a>
                             <p>Fastest response. We typically reply within 2 hours.</p>
                         </div>
 
@@ -524,6 +873,9 @@ a:hover { color: var(--color-green-dark); }
         </div>
     </section>
 
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -534,7 +886,7 @@ a:hover { color: var(--color-green-dark); }
 
                 <div class="footer-column">
                     <h4>Contact</h4>
-                    <p><a href="tel:8135166973">(813) 516-6973</a></p>
+                    <p><a href="tel:+18135166973">(813) 516-6973</a></p>
                     <p><a href="mailto:clarkesprotrees@gmail.com">clarkesprotrees@gmail.com</a></p>
                     <p>Serving Tampa & Surrounding Areas</p>
                 </div>
@@ -582,5 +934,6 @@ a:hover { color: var(--color-green-dark); }
             </div>
         </div>
     </footer>
+
 </body>
 </html>
