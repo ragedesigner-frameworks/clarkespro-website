@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work - Before & After Gallery | Clarke's Pro Tree Service</title>
+    <meta name="description" content="See real results from Clarke's Pro Tree Service. Professional tree removal, trimming, and storm cleanup in Tampa's premium neighborhoods.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --orange: #D97C3F;
+            --dark-green: #2D5016;
+            --cream: #FFF8F0;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --text-dark: #333333;
+            --text-medium: #555555;
+        }
+
+        body { font-family: 'Roboto', sans-serif; color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER */
+        header { background: var(--white); padding: 20px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--dark-green); text-decoration: none; line-height: 1.2; }
+        .logo-text span { display: block; font-size: 0.75rem; font-family: 'Roboto', sans-serif; font-weight: 500; color: var(--orange); letter-spacing: 2px; text-transform: uppercase; }
+        .nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--orange); }
+        .phone-btn { background: var(--orange) !important; color: var(--white) !important; padding: 12px 24px; border-radius: 5px; font-weight: 700 !important; transition: background 0.3s; }
+        .phone-btn:hover { background: #c26a30 !important; }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--dark-green); }
+
+        /* HERO */
+        .portfolio-hero { background: var(--dark-green); padding: 90px 0 70px; text-align: center; position: relative; overflow: hidden; }
+        .portfolio-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 50%, rgba(217,124,63,0.15) 0%, transparent 60%), radial-gradient(ellipse at 80% 50%, rgba(45,80,22,0.4) 0%, transparent 60%); }
+        .portfolio-hero .container { position: relative; z-index: 1; }
+        .hero-eyebrow { display: inline-block; background: rgba(217,124,63,0.2); border: 1px solid rgba(217,124,63,0.5); color: var(--orange); padding: 6px 20px; border-radius: 30px; font-size: 0.8rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 24px; }
+        .portfolio-hero h1 { font-family: 'Playfair Display', serif; font-size: 3.8rem; color: var(--white); margin-bottom: 20px; line-height: 1.15; }
+        .portfolio-hero h1 em { color: var(--orange); font-style: normal; }
+        .portfolio-hero p { font-size: 1.2rem; color: rgba(255,255,255,0.8); max-width: 680px; margin: 0 auto; line-height: 1.7; }
+        .hero-stats { display: flex; justify-content: center; gap: 50px; margin-top: 50px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .stat-item { text-align: center; }
+        .stat-number { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--orange); display: block; }
+        .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 4px; }
+
+        /* FILTER BAR */
+        .filter-bar { background: var(--cream); padding: 24px 0; border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .filter-inner { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .filter-label { font-size: 0.8rem; font-weight: 700; color: var(--text-medium); text-transform: uppercase; letter-spacing: 1.5px; margin-right: 8px; }
+        .filter-btn { background: var(--white); border: 2px solid rgba(0,0,0,0.1); color: var(--text-dark); padding: 8px 18px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.25s; font-family: 'Roboto', sans-serif; }
+        .filter-btn:hover { border-color: var(--orange); color: var(--orange); }
+        .filter-btn.active { background: var(--dark-green); border-color: var(--dark-green); color: var(--white); }
+
+        /* PORTFOLIO GRID */
+        .portfolio-section { padding: 70px 0 90px; background: var(--white); }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--dark-green); margin-bottom: 12px; }
+        .section-header p { color: var(--text-medium); font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(540px, 1fr)); gap: 40px; }
+
+        .project-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid rgba(0,0,0,0.06); opacity: 0; transform: translateY(30px); animation: fadeUp 0.5s ease forwards; }
+        .project-card:nth-child(1) { animation-delay: 0.05s; }
+        .project-card:nth-child(2) { animation-delay: 0.12s; }
+        .project-card:nth-child(3) { animation-delay: 0.19s; }
+        .project-card:nth-child(4) { animation-delay: 0.26s; }
+        .project-card:nth-child(5) { animation-delay: 0.33s; }
+        .project-card:nth-child(6) { animation-delay: 0.40s; }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        .project-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.14); }
+
+        .project-images { display: grid; grid-template-columns: 1fr 1fr; position: relative; }
+        .divider-line { position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; background: var(--white); z-index: 10; transform: translateX(-50%); }
+        .divider-arrow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 36px; height: 36px; background: var(--white); border-radius: 50%; z-index: 11; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2); font-size: 0.75rem; font-weight: 900; color: var(--dark-green); }
+        .project-image { position: relative; aspect-ratio: 4/3; overflow: hidden; background: var(--light-gray); }
+        .project-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .project-card:hover .project-image img { transform: scale(1.04); }
+        .image-label { position: absolute; top: 12px; left: 12px; padding: 5px 14px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; z-index: 5; }
+        .project-image.before .image-label { background: rgba(217,124,63,0.95); color: var(--white); }
+        .project-image.after .image-label { background: rgba(45,80,22,0.95); color: var(--white); }
+
+        .img-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 2rem; }
+        .img-placeholder.before-bg { background: linear-gradient(135deg, #5a3a1a, #8B5E3C); }
+        .img-placeholder.after-bg { background: linear-gradient(135deg, #1a3a0d, #2D5016); }
+        .img-placeholder-text { font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 8px; font-family: 'Roboto', sans-serif; }
+
+        .project-info { padding: 28px 28px 24px; }
+        .project-tags { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+        .tag { background: var(--light-gray); color: var(--text-medium); padding: 4px 12px; border-radius: 20px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .tag.tag-nifty { background: rgba(217,124,63,0.12); color: var(--orange); }
+        .project-location { color: var(--orange); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .project-info h3 { font-family: 'Playfair Display', serif; color: var(--dark-green); font-size: 1.4rem; margin-bottom: 10px; line-height: 1.3; }
+        .project-description { color: var(--text-medium); line-height: 1.75; font-size: 0.92rem; }
+
+        /* NIFTY BAND */
+        .nifty-band { background: var(--dark-green); padding: 60px 0; text-align: center; }
+        .nifty-band h2 { font-family: 'Playfair Display', serif; color: var(--white); font-size: 2.2rem; margin-bottom: 16px; }
+        .nifty-band h2 em { color: var(--orange); font-style: normal; }
+        .nifty-band p { color: rgba(255,255,255,0.75); font-size: 1.05rem; max-width: 640px; margin: 0 auto 36px; line-height: 1.7; }
+        .nifty-features { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 40px; }
+        .nifty-feat { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.85); font-weight: 600; font-size: 0.9rem; }
+        .nifty-icon { width: 40px; height: 40px; background: rgba(217,124,63,0.2); border: 1px solid rgba(217,124,63,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+
+        /* CTA */
+        .portfolio-cta { background: var(--cream); padding: 90px 0; text-align: center; }
+        .portfolio-cta h2 { font-family: 'Playfair Display', serif; color: var(--dark-green); font-size: 2.8rem; margin-bottom: 18px; line-height: 1.2; }
+        .portfolio-cta p { font-size: 1.15rem; color: var(--text-medium); margin-bottom: 36px; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .cta-button-primary { display: inline-block; background: var(--orange); color: var(--white); padding: 16px 40px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1.05rem; transition: all 0.3s; }
+        .cta-button-primary:hover { background: #c26a30; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(217,124,63,0.35); }
+        .cta-button-secondary { display: inline-block; background: transparent; color: var(--dark-green); padding: 16px 40px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1.05rem; border: 2px solid var(--dark-green); transition: all 0.3s; }
+        .cta-button-secondary:hover { background: var(--dark-green); color: var(--white); }
+
+        /* FOOTER */
+        footer { background: var(--dark-green); color: var(--white); padding: 60px 0 30px; }
+        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-brand h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 6px; }
+        .footer-brand .tagline { color: var(--orange); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+        .footer-about { line-height: 1.8; color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+        .footer-column h4 { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 20px; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: 12px; }
+        .footer-column a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; font-size: 0.9rem; }
+        .footer-column a:hover { color: var(--orange); }
+        .footer-column li { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 28px; text-align: center; color: rgba(255,255,255,0.45); font-size: 0.85rem; }
+
+        /* RESPONSIVE */
+        @media (max-width: 968px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .portfolio-hero h1 { font-size: 2.4rem; }
+            .hero-stats { gap: 30px; }
+            .portfolio-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 560px) {
+            .portfolio-hero h1 { font-size: 1.9rem; }
+            .hero-stats { flex-direction: column; gap: 20px; }
+            .footer-content { grid-template-columns: 1fr; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .project-images { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo-text">Clarke's Pro<span>Tree Service</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="portfolio.html" class="active">Our Work</a></li>
+                <li><a href="index.html#contact" class="phone-btn">(813) 516-6973</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
+
+    <section class="portfolio-hero">
+        <div class="container">
+            <div class="hero-eyebrow">Real Tampa Projects</div>
+            <h1>Our Work<br>Speaks <em>for Itself</em></h1>
+            <p>Real properties. Real challenges. Real results. See how our specialized equipment and expert crews protect Tampa homes while delivering professional tree service.</p>
+            <div class="hero-stats">
+                <div class="stat-item"><span class="stat-number">12+</span><div class="stat-label">Years Serving Tampa</div></div>
+                <div class="stat-item"><span class="stat-number">155+</span><div class="stat-label">5-Star Reviews</div></div>
+                <div class="stat-item"><span class="stat-number">30"</span><div class="stat-label">Gate Access Lift</div></div>
+                <div class="stat-item"><span class="stat-number">0</span><div class="stat-label">Lawn Damage</div></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="filter-bar">
+        <div class="container">
+            <div class="filter-inner">
+                <span class="filter-label">Filter:</span>
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="removal">Tree Removal</button>
+                <button class="filter-btn" data-filter="trimming">Trimming</button>
+                <button class="filter-btn" data-filter="storm">Storm Response</button>
+                <button class="filter-btn" data-filter="stump">Stump Grinding</button>
+                <button class="filter-btn" data-filter="nifty">Nifty Lift Access</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="portfolio-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Recent Projects</h2>
+                <p>Every job is photographed so you can see exactly what we deliver.</p>
+            </div>
+            <div class="portfolio-grid" id="portfolioGrid">
+
+                <div class="project-card" data-category="removal nifty">
+                    <div class="project-images">
+                        <div class="divider-line"></div>
+                        <div class="divider-arrow">↔</div>
+                        <div class="project-image before">
+                            <div class="img-placeholder before-bg">🌳<div class="img-placeholder-text">Photo Coming Soon</div></div>
+                            <span class="image-label">Before</span>
+                        </div>
+                        <div class="project-image after">
+                            <div class="img-placeholder after-bg">✅<div class="img-placeholder-text">Photo Coming Soon</div></div>
+                            <span class="image-label">After</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags"><span class="tag">Tree Removal</span><span class="tag tag-nifty">⭐ Nifty Lift Access</span></div>
+                        <div class="project-location">Lake Magdalene</div>
+                        <h3>60-Foot Backyard Oak Removal</h3>
+                        <p class="project-description">Complete removal of a 60-foot laurel oak through a 30-inch side gate. Our Nifty Narrow lift accessed the backyard where no other company could go — no fence removal, zero lawn damage, property fully protected throughout.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="storm removal">
+                    <div class="project-images">
+                        <div class="divider-line"></div>
+                        <div class="divider-arrow">↔</div>
+                        <div class="project-image before">
+                            <div class="img-placeholder before-bg">⚡<div class="img-placeholder-text">Photo Coming Soon</div></div>
+                            <span class="image-label">Before</span>
+                        </div>
+                        <div class="project-image after">
+                            <div class="img-placeholder after-bg">✅<div class="img-placeholder-text">Photo Coming Soon</div></div>
+                            <span class="image-label">After</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags"><span class="tag">Storm Response</span><span class="tag">Same Day</span></div>
+                        <div class="project-location">Carrollwood Village</div>
+                        <h3>Emergency Storm Response</h3>
+                        <p class="project-description">Fallen tree removed same-day after a storm. We protected the fence and surrounding structures during emergency removal. Complete debris cleanup and full site restoration — property left cleaner than we found it.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="trimming">
+                    <div class="project-images">
+                        <div class="divider-line"></div>
+                        <div class="divider-arrow">↔</div>
+                        <div class="project-image before">
+                            <div class="img-placeholder before-bg">🌿<div class="img-placeholder-text">Photo Coming Soon</div></div>
+                            <span class="image-label">Before</span>
+                        </div>
+                        <div class="project-image after">
+                            <div class="img-placeholder after-bg">✅<div class="img-placeholder-text">Photo Coming Soon</div></div>
+                            <span class="image-label">After</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags"><span class="tag">Crown Reduction</span><span class="tag">ISA Arborist</span></div>
+                        <div class="project-location">Forest Hills</div>
+                        <h3>Oak Canopy Pruning</h3>
+                        <p class="project-description">Arborist-guided crown reduction for storm safety. Improved tree health while maintaining natural shape. Professional cleanup with all debris hauled — the tree is healthier and the property is safer.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="stump nifty">
+                    <div class="project-images">
+                        <div class="divider-line"></div>
+                        <div class="divider-arrow">↔</div>
+                        <div class="project-image before">
+                            <div class="img-placeholder before-bg">🪨<div class="img-placeholder-text">Photo Coming Soon</div></div>
+                            <span class="image-label">Before</span>
+                        </div>
+                        <div class="project-image after">
+                            <div class="img-placeholder after-bg">✅<div class="img-placeholder-text">Photo Coming Soon</div></div>
+                            <span class="image-label">After</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags"><span class="tag">Stump Grinding</span><span class="tag tag-nifty">⭐ Nifty Lift Access</span></div>
+                        <div class="project-location">Original Carrollwood</div>
+                        <h3>Below-Grade Stump Grinding</h3>
+                        <p class="project-description">Ground to below-grade and ready for sod. Our equipment accessed a tight backyard through a narrow gate with minimal lawn impact. Mulch removed, area leveled — ready for whatever comes next.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="removal nifty">
+                    <div class="project-images">
+                        <div class="divider-line"></div>
+                        <div class="divider-arrow">↔</div>
+                        <div class="project-image before">
+                            <div class="img-placeholder before-bg">🏠<div class="img-placeholder-text">Photo Coming Soon</div></div>
+                            <span class="image-label">Before</span>
+                        </div>
+                        <div class="project-image after">
+                            <div class="img-placeholder after-bg">✅<div class="img-placeholder-text">Photo Coming Soon</div></div>
+                            <span class="image-label">After</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags"><span class="tag">Tree Removal</span><span class="tag tag-nifty">⭐ Nifty Lift Access</span><span class="tag">Impossible Access</span></div>
+                        <div class="project-location">Lake Magdalene</div>
+                        <h3>When Others Said "Impossible"</h3>
+                        <p class="project-description">Two other companies turned this job down. Our 30-inch Nifty Narrow lift fit where cranes and bucket trucks couldn't go. Large tree removed between houses with complete property protection. This is exactly what we do.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="removal">
+                    <div class="project-images">
+                        <div class="divider-line"></div>
+                        <div class="divider-arrow">↔</div>
+                        <div class="project-image before">
+                            <div class="img-placeholder before-bg">🌲🌲🌲<div class="img-placeholder-text">Photo Coming Soon</div></div>
+                            <span class="image-label">Before</span>
+                        </div>
+                        <div class="project-image after">
+                            <div class="img-placeholder after-bg">✅<div class="img-placeholder-text">Photo Coming Soon</div></div>
+                            <span class="image-label">After</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags"><span class="tag">Multi-Tree</span><span class="tag">Full Day Job</span></div>
+                        <div class="project-location">North Tampa</div>
+                        <h3>Three Large Oaks — One Day</h3>
+                        <p class="project-description">Removed three large oaks in a single day with our two-crew system. Job completed efficiently while maintaining safety standards throughout. Property left cleaner than we found it — every time.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="nifty-band">
+        <div class="container">
+            <h2>The Equipment That <em>Changes Everything</em></h2>
+            <p>Our Nifty Narrow aerial lift fits through gates as small as 30 inches — giving us access to backyards that shut out every other tree service in Tampa.</p>
+            <div class="nifty-features">
+                <div class="nifty-feat"><div class="nifty-icon">📐</div>Fits through 30-inch gates</div>
+                <div class="nifty-feat"><div class="nifty-icon">🌿</div>Zero lawn damage</div>
+                <div class="nifty-feat"><div class="nifty-icon">🏠</div>No fence removal needed</div>
+                <div class="nifty-feat"><div class="nifty-icon">✅</div>Pool &amp; screen safe</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio-cta">
+        <div class="container">
+            <h2>Ready for Results Like These?</h2>
+            <p>We bring the same specialized equipment, expert crew, and complete property protection to every job. Get your free assessment and see what's possible for your property.</p>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="cta-button-primary">Get a Free Assessment</a>
+                <a href="tel:8135166973" class="cta-button-secondary">(813) 516-6973</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Clarke's Pro Tree Service</h3>
+                    <div class="tagline">Tampa's Low-Impact Specialists</div>
+                    <p class="footer-about">Specialized tree removal and trimming serving Tampa with equipment designed for tight backyard access. 12 years protecting Tampa properties, zero lawn damage.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="portfolio.html">Our Work</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:8135166973">(813) 516-6973</a></li>
+                        <li><a href="sms:8135166973">Text Us</a></li>
+                        <li>Tampa, FL</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Credentials</h4>
+                    <ul>
+                        <li>Licensed &amp; Insured</li>
+                        <li>ISA Certified Arborist</li>
+                        <li>Workers Comp Insured</li>
+                        <li>Liability Coverage</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>© 2026 Clarke's Pro Tree Service. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.project-card');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                cards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category.includes(filter)) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        mobileBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+
+</body>
+</html>
